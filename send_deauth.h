@@ -1,11 +1,7 @@
 #pragma once
 #include <pcap.h>
-
-struct DeauthPacket {
-    RadiotapHdr radiotapHdr;
-    BeaconHdr beaconHdr;
-};
+#include "radiotaphdr.h"
+#include "beaconhdr.h"
 
 void usage();
-void deauth(pcap_t* handle);
-bool pkt_handle(const u_char* pkt);
+void deauth(pcap_t* handle, Mac apMac, Mac stationMac);
